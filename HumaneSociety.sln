@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumaneSocietyForm", "HumaneSocietyForm\HumaneSocietyForm.csproj", "{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumaneSocietyConsole", "HumaneSocietyConsole\HumaneSocietyConsole.csproj", "{9D554533-6B22-433C-AB4A-B84606810EF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D554533-6B22-433C-AB4A-B84606810EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D554533-6B22-433C-AB4A-B84606810EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D554533-6B22-433C-AB4A-B84606810EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D554533-6B22-433C-AB4A-B84606810EF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

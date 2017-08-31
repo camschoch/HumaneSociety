@@ -16,7 +16,7 @@ namespace HumaneSocietyForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HumaneSociety());
+            Application.Run(new LogIn());
         }
     }
 }

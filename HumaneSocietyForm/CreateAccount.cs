@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HumaneSocietyForm
 {
-    public partial class HumaneSociety : Form
+    public partial class CreateAccount : Form
     {
-        public HumaneSociety()
+        public CreateAccount()
         {
             InitializeComponent();
         }
