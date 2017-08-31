@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumaneSociety", "HumaneSociety\HumaneSociety.csproj", "{C185C311-9AAD-4FC8-BAC9-B9B375D20B78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumaneSocietyForm", "HumaneSocietyForm\HumaneSocietyForm.csproj", "{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C185C311-9AAD-4FC8-BAC9-B9B375D20B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C185C311-9AAD-4FC8-BAC9-B9B375D20B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C185C311-9AAD-4FC8-BAC9-B9B375D20B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C185C311-9AAD-4FC8-BAC9-B9B375D20B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2E7265-8C6B-4D33-B168-F15368DB9BCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
