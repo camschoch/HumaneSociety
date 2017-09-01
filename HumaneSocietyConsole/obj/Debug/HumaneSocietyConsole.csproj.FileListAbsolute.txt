@@ -1,0 +1,5 @@
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\bin\Debug\HumaneSocietyConsole.exe.config
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\bin\Debug\HumaneSocietyConsole.exe
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\bin\Debug\HumaneSocietyConsole.pdb
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\obj\Debug\HumaneSocietyConsole.exe
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\obj\Debug\HumaneSocietyConsole.pdb

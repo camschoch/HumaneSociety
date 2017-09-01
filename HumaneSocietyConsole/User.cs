@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace HumaneSocietyConsole
 {
-    class CreateAccount
+    abstract class User
     {
-       
+        public User()
+        {
+            SetUser();
+        }
+        public virtual void SetUser()
+        {
+
+        }
     }
 }

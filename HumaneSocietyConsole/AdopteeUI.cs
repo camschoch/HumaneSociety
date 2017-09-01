@@ -6,32 +6,79 @@ using System.Threading.Tasks;
 
 namespace HumaneSocietyConsole
 {
-    class AdopteeUI
+    class AdopteeUI : User
     {
-        public static void SetUser()
+        public override void SetUser()
         {
-            string tempFirstName;
-            string tempLastName;
-            string PreferedAnimalPersonality;
-            int houseActivityLevelInt;
-
-            Console.WriteLine("Enter Your first name.");
-            tempFirstName = Console.ReadLine();
-
-            Console.WriteLine("Enter Your last name.");
-            tempLastName = Console.ReadLine();
-
-            Console.WriteLine("what personality are you looking for\n1 = docile\n2 = energetic\n 3 = search for both");
-            PreferedAnimalPersonality = Console.ReadLine();
-            PreferedAnimalPersonality = PreferedPersonalitySwitch(PreferedAnimalPersonality);
-
-            Console.WriteLine("How active is your household 1 - 10? (1 being calm 10 being vary active)");
-            string  houseActivityLevelString = Console.ReadLine();
-            houseActivityLevelInt = CheckHouseHold(houseActivityLevelString);
-            ///////SETTING UP ADOPTEE// NEED TO MAKE A SEPERATE ONE FOR EMPLOYEE AND GIVE A WAY TO CREATE NEW EMPLOYEES VIA A PASSWORD??
-            
-
+            string FirstName = SetFirstName();
+            string LastName = SetLastName();
+            string UserName = SetUserName();
+            string Password = SetPassword();
+            string PreferedAnimalPersonality = SetPreferedPersonality();
+            int houseActivityLevelInt = SetActivityLvl();
+            //SEND INFO TO DATABASE
+            //Console.WriteLine("EndRun");
+            //Console.ReadLine();
         }
+        static string SetFirstName()
+        {
+            Console.WriteLine("Enter Your first name.");
+            string tempFirstName = Console.ReadLine();
+            return tempFirstName;
+        }
+
+        static string SetLastName()
+        {
+            Console.WriteLine("Enter Your last name.");
+            string tempLastName = Console.ReadLine();
+            return tempLastName;
+        }
+
+        static string SetUserName()
+        {
+            Console.WriteLine("What would you like your username to be?");
+            string tempUserName = Console.ReadLine();
+            //try catch this when adding to database to check if username is taken.
+            return tempUserName;
+        }
+
+        static string SetPassword()
+        {
+            Console.WriteLine("Please enter your password");
+            string tempPassword = Console.ReadLine();
+            Console.WriteLine("Please re-enter the password to varify its correct");
+            string checkTempPassword = Console.ReadLine();
+            if (tempPassword != checkTempPassword)
+            {
+                Console.WriteLine("Those did not match please try again.");
+                Console.ReadLine();
+                SetPassword();
+                return checkTempPassword;
+            }
+            else
+            {
+                return checkTempPassword;
+            }
+        }
+
+        static string SetPreferedPersonality()
+        {
+            Console.WriteLine("what personality are you looking for\n1 = docile\n2 = energetic\n3 = search for both");
+            string PreferedAnimalPersonality = Console.ReadLine();
+            PreferedAnimalPersonality = PreferedPersonalitySwitch(PreferedAnimalPersonality);
+            return PreferedAnimalPersonality;
+        }
+
+        static int SetActivityLvl()
+        {
+            Console.WriteLine("How active is your household 1 - 10? (1 being calm 10 being vary active)");
+            string houseActivityLevelString = Console.ReadLine();
+            int houseActivityLevelInt = CheckHouseHold(houseActivityLevelString);
+            ///////SETTING UP ADOPTEE// NEED TO MAKE A SEPERATE ONE FOR EMPLOYEE AND GIVE A WAY TO CREATE NEW EMPLOYEES VIA A PASSWORD??
+            return houseActivityLevelInt;
+        }    
+
+        
         static string PreferedPersonalitySwitch(string userInput)
         {
             string PreferedAnimalPersonality = "both";
@@ -66,9 +113,7 @@ namespace HumaneSocietyConsole
                 int empty = 0;
                 Console.WriteLine("Sorry that wasnt a number 1 - 10 try again.");
                 Console.ReadLine();
-                Console.WriteLine("How active is your household 1 - 10? (1 being calm 10 being vary active)");
-                string temp = Console.ReadLine();
-                CheckHouseHold(temp);
+                SetActivityLvl();
                 return empty;
             }
         }

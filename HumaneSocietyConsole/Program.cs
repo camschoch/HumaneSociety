@@ -10,6 +10,8 @@ namespace HumaneSocietyConsole
     {
         static void Main(string[] args)
         {
+            LogIn start = new LogIn();
+            start.Start();
         }
     }
 }

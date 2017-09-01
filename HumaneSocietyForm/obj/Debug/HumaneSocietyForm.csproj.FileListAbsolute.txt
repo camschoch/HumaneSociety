@@ -1,1 +1,9 @@
 C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\bin\Debug\HumaneSocietyForm.exe.config
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\obj\Debug\HumaneSocietyForm.csprojResolveAssemblyReference.cache
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\obj\Debug\HumaneSocietyForm.LogIn.resources
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\obj\Debug\HumaneSocietyForm.Properties.Resources.resources
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\obj\Debug\HumaneSocietyForm.csproj.GenerateResource.Cache
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\bin\Debug\HumaneSocietyForm.exe
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\bin\Debug\HumaneSocietyForm.pdb
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\obj\Debug\HumaneSocietyForm.exe
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyForm\obj\Debug\HumaneSocietyForm.pdb

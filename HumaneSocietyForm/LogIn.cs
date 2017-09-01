@@ -38,7 +38,7 @@ namespace HumaneSocietyForm
         }
         private void GoToCreateAccount()
         {
-            Application.Run(CreateAccount);
+
         }
     }
 }
