@@ -15,7 +15,10 @@ namespace HumaneSocietyConsole
             string LastName = SetLastName();
             string UserName = SetUserName();
             string Password = SetPassword();
-            //newAccount = NewEmployee();
+            string PreferedAnimalPersonality = "";
+            int houseActivityLevelInt = 0;
+            newAccount = new CreateEmployee();
+            newAccount.StartCreate(FirstName, LastName, UserName, Password, PreferedAnimalPersonality, houseActivityLevelInt);
         }
         static string SetFirstName()
         {

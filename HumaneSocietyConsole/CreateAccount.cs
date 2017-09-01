@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace HumaneSocietyConsole
 {
-    class CreateAccount
+    abstract class CreateAccount
     {
-       
+        public virtual void StartCreate(string FirstName, string LastName, string UserName, string Password, string PreferedAnimalPersonality, int houseActivityLevelInt)
+        {
+
+        }
     }
 }

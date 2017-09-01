@@ -8,6 +8,7 @@ namespace HumaneSocietyConsole
 {
     class AdopteeUI : User
     {
+        CreateAccount newAccount;
         public override void SetUser()
         {
             string FirstName = SetFirstName();
@@ -16,6 +17,8 @@ namespace HumaneSocietyConsole
             string Password = SetPassword();
             string PreferedAnimalPersonality = SetPreferedPersonality();
             int houseActivityLevelInt = SetActivityLvl();
+            newAccount = new CreateAdoptee();
+            newAccount.StartCreate(FirstName, LastName, UserName, Password, PreferedAnimalPersonality, houseActivityLevelInt);
             //SEND INFO TO DATABASE
             //Console.WriteLine("EndRun");
             //Console.ReadLine();

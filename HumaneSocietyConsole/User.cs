@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 namespace HumaneSocietyConsole
 {
     abstract class User
-    {
-        public User()
-        {
-            SetUser();
-        }
+    { 
         public virtual void SetUser()
         {
 
