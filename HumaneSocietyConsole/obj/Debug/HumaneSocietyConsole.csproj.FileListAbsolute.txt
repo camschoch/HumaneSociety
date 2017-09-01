@@ -3,3 +3,4 @@ C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\bin\Debug\Hum
 C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\bin\Debug\HumaneSocietyConsole.pdb
 C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\obj\Debug\HumaneSocietyConsole.exe
 C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\obj\Debug\HumaneSocietyConsole.pdb
+C:\Users\camsc\OneDrive\devCode\HumaneSociety\HumaneSocietyConsole\obj\Debug\HumaneSocietyConsole.csprojResolveAssemblyReference.cache

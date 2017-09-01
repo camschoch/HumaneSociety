@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HumaneSociety" Class="LINQtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DELLLAPTOP;Initial Catalog=HumaneSociety;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="HumaneSocietyConsole.Properties.Settings" SettingsPropertyName="HumaneSocietyConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.employee" Member="employees">
-    <Type Name="employee">
-      <Column Name="Employee" Member="Employee1" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="First_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Last_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.adopter" Member="adopters">
     <Type Name="adopter">
       <Column Name="Adopter" Member="Adopter1" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -36,9 +27,9 @@
       <Column Name="Household_Activity" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.employee" Member="employee1s">
-    <Type Name="employee1">
-      <Column Name="Employee" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.employee" Member="employees">
+    <Type Name="employee">
+      <Column Name="Employee" Member="Employee1" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="First_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Last_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />

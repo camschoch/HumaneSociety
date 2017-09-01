@@ -46,8 +46,6 @@
   <ItemGroup>
     <Compile Include="AdopteeUI.cs" />
     <Compile Include="CreateAccount.cs" />
-    <Compile Include="CreateAdoptee.cs" />
-    <Compile Include="CreateEmployee.cs" />
     <Compile Include="EmployeeUI.cs" />
     <Compile Include="LINQtoSQL.designer.cs">
       <DependentUpon>LINQtoSQL.dbml</DependentUpon>

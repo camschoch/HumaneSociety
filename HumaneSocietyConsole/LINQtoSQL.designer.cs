@@ -30,18 +30,15 @@ namespace HumaneSocietyConsole
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertemployee(employee instance);
-    partial void Updateemployee(employee instance);
-    partial void Deleteemployee(employee instance);
     partial void Insertadopter(adopter instance);
     partial void Updateadopter(adopter instance);
     partial void Deleteadopter(adopter instance);
     partial void Insertanimal(animal instance);
     partial void Updateanimal(animal instance);
     partial void Deleteanimal(animal instance);
-    partial void Insertemployee1(employee1 instance);
-    partial void Updateemployee1(employee1 instance);
-    partial void Deleteemployee1(employee1 instance);
+    partial void Insertemployee(employee instance);
+    partial void Updateemployee(employee instance);
+    partial void Deleteemployee(employee instance);
     #endregion
 		
 		public LINQtoSQLDataContext() : 
@@ -74,14 +71,6 @@ namespace HumaneSocietyConsole
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<employee> employees
-		{
-			get
-			{
-				return this.GetTable<employee>();
-			}
-		}
-		
 		public System.Data.Linq.Table<adopter> adopters
 		{
 			get
@@ -98,169 +87,11 @@ namespace HumaneSocietyConsole
 			}
 		}
 		
-		public System.Data.Linq.Table<employee1> employee1s
+		public System.Data.Linq.Table<employee> employees
 		{
 			get
 			{
-				return this.GetTable<employee1>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.employee")]
-	public partial class employee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Employee1;
-		
-		private string _First_Name;
-		
-		private string _Last_Name;
-		
-		private string _Pass;
-		
-		private string _Username;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEmployee1Changing(int value);
-    partial void OnEmployee1Changed();
-    partial void OnFirst_NameChanging(string value);
-    partial void OnFirst_NameChanged();
-    partial void OnLast_NameChanging(string value);
-    partial void OnLast_NameChanged();
-    partial void OnPassChanging(string value);
-    partial void OnPassChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    #endregion
-		
-		public employee()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Employee", Storage="_Employee1", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Employee1
-		{
-			get
-			{
-				return this._Employee1;
-			}
-			set
-			{
-				if ((this._Employee1 != value))
-				{
-					this.OnEmployee1Changing(value);
-					this.SendPropertyChanging();
-					this._Employee1 = value;
-					this.SendPropertyChanged("Employee1");
-					this.OnEmployee1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_First_Name", DbType="VarChar(50)")]
-		public string First_Name
-		{
-			get
-			{
-				return this._First_Name;
-			}
-			set
-			{
-				if ((this._First_Name != value))
-				{
-					this.OnFirst_NameChanging(value);
-					this.SendPropertyChanging();
-					this._First_Name = value;
-					this.SendPropertyChanged("First_Name");
-					this.OnFirst_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Name", DbType="VarChar(50)")]
-		public string Last_Name
-		{
-			get
-			{
-				return this._Last_Name;
-			}
-			set
-			{
-				if ((this._Last_Name != value))
-				{
-					this.OnLast_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Last_Name = value;
-					this.SendPropertyChanged("Last_Name");
-					this.OnLast_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pass", DbType="VarChar(50)")]
-		public string Pass
-		{
-			get
-			{
-				return this._Pass;
-			}
-			set
-			{
-				if ((this._Pass != value))
-				{
-					this.OnPassChanging(value);
-					this.SendPropertyChanging();
-					this._Pass = value;
-					this.SendPropertyChanged("Pass");
-					this.OnPassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<employee>();
 			}
 		}
 	}
@@ -798,12 +629,12 @@ namespace HumaneSocietyConsole
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.employee")]
-	public partial class employee1 : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class employee : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Employee;
+		private int _Employee1;
 		
 		private string _First_Name;
 		
@@ -817,8 +648,8 @@ namespace HumaneSocietyConsole
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnEmployeeChanging(int value);
-    partial void OnEmployeeChanged();
+    partial void OnEmployee1Changing(int value);
+    partial void OnEmployee1Changed();
     partial void OnFirst_NameChanging(string value);
     partial void OnFirst_NameChanged();
     partial void OnLast_NameChanging(string value);
@@ -829,27 +660,27 @@ namespace HumaneSocietyConsole
     partial void OnUsernameChanged();
     #endregion
 		
-		public employee1()
+		public employee()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Employee", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Employee
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Employee", Storage="_Employee1", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Employee1
 		{
 			get
 			{
-				return this._Employee;
+				return this._Employee1;
 			}
 			set
 			{
-				if ((this._Employee != value))
+				if ((this._Employee1 != value))
 				{
-					this.OnEmployeeChanging(value);
+					this.OnEmployee1Changing(value);
 					this.SendPropertyChanging();
-					this._Employee = value;
-					this.SendPropertyChanged("Employee");
-					this.OnEmployeeChanged();
+					this._Employee1 = value;
+					this.SendPropertyChanged("Employee1");
+					this.OnEmployee1Changed();
 				}
 			}
 		}
