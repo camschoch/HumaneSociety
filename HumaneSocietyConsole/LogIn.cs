@@ -18,7 +18,7 @@ namespace HumaneSocietyConsole
                     AdopteeLogIn();
                     break;
                 case "2":
-
+                    EmployeeLogIn();
                     break;
                 case "3":
                     Console.WriteLine("Would you like to create a user account or an employee account.\n1 = user\n2 = employee");
@@ -67,49 +67,109 @@ namespace HumaneSocietyConsole
         }
         void AdopteeLogIn()
         {
-            adopter ADOPTER = new adopter();
             string tempUserName;
             string tempPassword;
             Console.WriteLine("Please enter your username");
             tempUserName = Console.ReadLine();
             Console.WriteLine("Please enter your password");
             tempPassword = Console.ReadLine();
-            CheckUserName(tempUserName, tempPassword, ADOPTER);
+            CheckUserNameAdoptee(tempUserName, tempPassword);
+
+        }
+        void EmployeeLogIn()
+        {
+            string tempUserName;
+            string tempPassword;
+            Console.WriteLine("Please enter your username");
+            tempUserName = Console.ReadLine();
+            Console.WriteLine("Please enter your password");
+            tempPassword = Console.ReadLine();
+            CheckUserNameEmployee(tempUserName, tempPassword);
 
         }
 
-        ///////MAKE A WHERE STATEMENT THAT CHECKS A USERNAME AND THEN WHERE THAT USERNAME EXISTS CHECK THE PASSWORD
-        ///////USING CLIENT??
-        //void CheckUserName(string tempUserName, string tempPassword, adopter ADOPTER)
-        //{        
-        //    foreach (var item in ADOPTER)
-        //    {
-        //        string itemString = item.ToString();
-        //        if (itemString == tempUserName)
-        //        {
-                    
-        //            CheckPassword(tempPassword, itemString);
-        //        }
-        //    }
-        //    Console.WriteLine("We couldnt find a matching user name.");
-        //    Console.ReadLine();
-        //    AdopteeLogIn();
-        //}
-        //void CheckPassword(string tempPassword, string userName)
+        /////MAKE A WHERE STATEMENT THAT CHECKS A USERNAME AND THEN WHERE THAT USERNAME EXISTS CHECK THE PASSWORD
+        /////USING CLIENT??
+
+        //void CheckUserName(string userName, string pass, adopter ADOPTER)
         //{
-        //    foreach (var item in ADOPTER.Pass)
+        //    LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+        //    if (userName == ADOPTER.Username)
         //    {
-        //        string itemString = item.ToString();
-        //        if (itemString == tempPassword)
-        //        {
-        //            AdopteeUI.MainMenu();
-        //        }
+        //        context.adopters.Where(ADOPTER.Username);
         //    }
-        //    Console.WriteLine("Sorry Wrong Password.");
-        //    Console.ReadLine();
-        //    Console.WriteLine("Please enter your password");
-        //    string newTempPassword = Console.ReadLine();
-        //    CheckPassword(newTempPassword, ADOPTER);
+
         //}
+        void CheckUserNameAdoptee(string tempUserName, string tempPassword)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+
+            //string test = context.adopters.Where((temp) => ADOPTER.Username == tempUserName);
+            
+
+            foreach (var item in context.adopters)
+            {
+                string itemString = item.Username.ToString();
+                //int thing = ADOPTER.Adopter1;
+                if (itemString == tempUserName)
+                {
+                    //string otherTest = from User in adopter
+                    //                   where adopter.Username == itemString
+                    //                   select User;
+                    //string test = context.adopters.Where((temp) =>  == );
+                    CheckPasswordAdoptee(tempPassword, itemString, item);
+                }
+            }
+            Console.WriteLine("We couldnt find a matching user name.");
+            Console.ReadLine();
+            AdopteeLogIn();
+        }
+        void CheckPasswordAdoptee(string tempPassword, string userName, adopter item)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            string password = item.Pass;
+            
+                if (password == tempPassword)
+                {
+                AdopteeUI.MainMenu(item);
+                }
+            Console.WriteLine("Sorry Wrong Password.");
+            Console.ReadLine();
+            AdopteeLogIn();
+        }
+        void CheckUserNameEmployee(string tempUserName, string tempPassword)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+
+            //string test = context.adopters.Where((temp) => ADOPTER.Username == tempUserName);
+
+
+            foreach (var item in context.employees)
+            {
+                string itemString = item.Username.ToString();
+               
+                if (itemString == tempUserName)
+                {
+                    CheckPasswordEmployee(tempPassword, itemString, item);
+                }
+            }
+            Console.WriteLine("We couldnt find a matching user name.");
+            Console.ReadLine();
+            EmployeeLogIn();
+        }
+        void CheckPasswordEmployee(string tempPassword, string userName, employee item)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            string password = item.Pass;
+
+            if (password == tempPassword)
+            {
+                EmployeeUI.MainMenu(item);
+            }
+            Console.WriteLine("Sorry Wrong Password.");
+            Console.ReadLine();
+            EmployeeLogIn();
+        }
+
     }
 }

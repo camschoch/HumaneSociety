@@ -30,15 +30,15 @@ namespace HumaneSocietyConsole
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertadopter(adopter instance);
-    partial void Updateadopter(adopter instance);
-    partial void Deleteadopter(adopter instance);
     partial void Insertanimal(animal instance);
     partial void Updateanimal(animal instance);
     partial void Deleteanimal(animal instance);
     partial void Insertemployee(employee instance);
     partial void Updateemployee(employee instance);
     partial void Deleteemployee(employee instance);
+    partial void Insertadopter(adopter instance);
+    partial void Updateadopter(adopter instance);
+    partial void Deleteadopter(adopter instance);
     #endregion
 		
 		public LINQtoSQLDataContext() : 
@@ -71,14 +71,6 @@ namespace HumaneSocietyConsole
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<adopter> adopters
-		{
-			get
-			{
-				return this.GetTable<adopter>();
-			}
-		}
-		
 		public System.Data.Linq.Table<animal> animals
 		{
 			get
@@ -94,210 +86,12 @@ namespace HumaneSocietyConsole
 				return this.GetTable<employee>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.adopter")]
-	public partial class adopter : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Adopter1;
-		
-		private string _First_Name;
-		
-		private string _Last_Name;
-		
-		private string _Pass;
-		
-		private string _Personality;
-		
-		private string _Username;
-		
-		private System.Nullable<int> _Household_Activity;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAdopter1Changing(int value);
-    partial void OnAdopter1Changed();
-    partial void OnFirst_NameChanging(string value);
-    partial void OnFirst_NameChanged();
-    partial void OnLast_NameChanging(string value);
-    partial void OnLast_NameChanged();
-    partial void OnPassChanging(string value);
-    partial void OnPassChanged();
-    partial void OnPersonalityChanging(string value);
-    partial void OnPersonalityChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnHousehold_ActivityChanging(System.Nullable<int> value);
-    partial void OnHousehold_ActivityChanged();
-    #endregion
-		
-		public adopter()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Adopter", Storage="_Adopter1", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Adopter1
+		public System.Data.Linq.Table<adopter> adopters
 		{
 			get
 			{
-				return this._Adopter1;
-			}
-			set
-			{
-				if ((this._Adopter1 != value))
-				{
-					this.OnAdopter1Changing(value);
-					this.SendPropertyChanging();
-					this._Adopter1 = value;
-					this.SendPropertyChanged("Adopter1");
-					this.OnAdopter1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_First_Name", DbType="VarChar(50)")]
-		public string First_Name
-		{
-			get
-			{
-				return this._First_Name;
-			}
-			set
-			{
-				if ((this._First_Name != value))
-				{
-					this.OnFirst_NameChanging(value);
-					this.SendPropertyChanging();
-					this._First_Name = value;
-					this.SendPropertyChanged("First_Name");
-					this.OnFirst_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Name", DbType="VarChar(50)")]
-		public string Last_Name
-		{
-			get
-			{
-				return this._Last_Name;
-			}
-			set
-			{
-				if ((this._Last_Name != value))
-				{
-					this.OnLast_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Last_Name = value;
-					this.SendPropertyChanged("Last_Name");
-					this.OnLast_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pass", DbType="VarChar(50)")]
-		public string Pass
-		{
-			get
-			{
-				return this._Pass;
-			}
-			set
-			{
-				if ((this._Pass != value))
-				{
-					this.OnPassChanging(value);
-					this.SendPropertyChanging();
-					this._Pass = value;
-					this.SendPropertyChanged("Pass");
-					this.OnPassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Personality", DbType="VarChar(50)")]
-		public string Personality
-		{
-			get
-			{
-				return this._Personality;
-			}
-			set
-			{
-				if ((this._Personality != value))
-				{
-					this.OnPersonalityChanging(value);
-					this.SendPropertyChanging();
-					this._Personality = value;
-					this.SendPropertyChanged("Personality");
-					this.OnPersonalityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Household_Activity", DbType="Int")]
-		public System.Nullable<int> Household_Activity
-		{
-			get
-			{
-				return this._Household_Activity;
-			}
-			set
-			{
-				if ((this._Household_Activity != value))
-				{
-					this.OnHousehold_ActivityChanging(value);
-					this.SendPropertyChanging();
-					this._Household_Activity = value;
-					this.SendPropertyChanged("Household_Activity");
-					this.OnHousehold_ActivityChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<adopter>();
 			}
 		}
 	}
@@ -761,6 +555,212 @@ namespace HumaneSocietyConsole
 					this._Username = value;
 					this.SendPropertyChanged("Username");
 					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.adopter")]
+	public partial class adopter : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Adopter1;
+		
+		private string _First_Name;
+		
+		private string _Last_Name;
+		
+		private string _Pass;
+		
+		private string _Personality;
+		
+		private string _Username;
+		
+		private System.Nullable<int> _Household_Activity;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAdopter1Changing(int value);
+    partial void OnAdopter1Changed();
+    partial void OnFirst_NameChanging(string value);
+    partial void OnFirst_NameChanged();
+    partial void OnLast_NameChanging(string value);
+    partial void OnLast_NameChanged();
+    partial void OnPassChanging(string value);
+    partial void OnPassChanged();
+    partial void OnPersonalityChanging(string value);
+    partial void OnPersonalityChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnHousehold_ActivityChanging(System.Nullable<int> value);
+    partial void OnHousehold_ActivityChanged();
+    #endregion
+		
+		public adopter()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Adopter", Storage="_Adopter1", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Adopter1
+		{
+			get
+			{
+				return this._Adopter1;
+			}
+			set
+			{
+				if ((this._Adopter1 != value))
+				{
+					this.OnAdopter1Changing(value);
+					this.SendPropertyChanging();
+					this._Adopter1 = value;
+					this.SendPropertyChanged("Adopter1");
+					this.OnAdopter1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_First_Name", DbType="VarChar(50)")]
+		public string First_Name
+		{
+			get
+			{
+				return this._First_Name;
+			}
+			set
+			{
+				if ((this._First_Name != value))
+				{
+					this.OnFirst_NameChanging(value);
+					this.SendPropertyChanging();
+					this._First_Name = value;
+					this.SendPropertyChanged("First_Name");
+					this.OnFirst_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Name", DbType="VarChar(50)")]
+		public string Last_Name
+		{
+			get
+			{
+				return this._Last_Name;
+			}
+			set
+			{
+				if ((this._Last_Name != value))
+				{
+					this.OnLast_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Last_Name = value;
+					this.SendPropertyChanged("Last_Name");
+					this.OnLast_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pass", DbType="VarChar(50)")]
+		public string Pass
+		{
+			get
+			{
+				return this._Pass;
+			}
+			set
+			{
+				if ((this._Pass != value))
+				{
+					this.OnPassChanging(value);
+					this.SendPropertyChanging();
+					this._Pass = value;
+					this.SendPropertyChanged("Pass");
+					this.OnPassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Personality", DbType="VarChar(50)")]
+		public string Personality
+		{
+			get
+			{
+				return this._Personality;
+			}
+			set
+			{
+				if ((this._Personality != value))
+				{
+					this.OnPersonalityChanging(value);
+					this.SendPropertyChanging();
+					this._Personality = value;
+					this.SendPropertyChanged("Personality");
+					this.OnPersonalityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Household_Activity", DbType="Int")]
+		public System.Nullable<int> Household_Activity
+		{
+			get
+			{
+				return this._Household_Activity;
+			}
+			set
+			{
+				if ((this._Household_Activity != value))
+				{
+					this.OnHousehold_ActivityChanging(value);
+					this.SendPropertyChanging();
+					this._Household_Activity = value;
+					this.SendPropertyChanged("Household_Activity");
+					this.OnHousehold_ActivityChanged();
 				}
 			}
 		}

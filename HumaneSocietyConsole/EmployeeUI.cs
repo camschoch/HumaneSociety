@@ -8,6 +8,11 @@ namespace HumaneSocietyConsole
 {
     static class EmployeeUI
     {
-       
+        public static void MainMenu(employee personInfo)
+        {
+            Console.WriteLine("welcome employee " + personInfo.First_Name);
+            Console.WriteLine("would")
+            Console.ReadLine();
+        }
     }
 }
