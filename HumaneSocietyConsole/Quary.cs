@@ -166,5 +166,29 @@ namespace HumaneSocietyConsole
             Console.ReadLine();
             UpdateShots();
         }
+        public static void CheckRoom()
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            foreach(var item in context.animals)
+            {
+                Console.WriteLine(item.Animal1 + " " + item.Name + " is in room " + item.Room);
+            }
+            Console.ReadLine();
+        }
+        public static void CheckAmountOfFood()
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            foreach(var item in context.animals)
+            {
+                Console.WriteLine(item.Animal1 + " " + item.Name + " needs " + item.Food_Amount + " cups a day.");
+            }
+            Console.ReadLine();
+        }
+        ///////////////////////ADOPTERUI
+        public static void SearchAnimals()
+        {
+
+
+        }
     }
 }

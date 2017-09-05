@@ -11,7 +11,7 @@ namespace HumaneSocietyConsole
         public static void MainMenu(employee personInfo)
         {
             Console.WriteLine("welcome employee " + personInfo.First_Name);
-            Console.WriteLine("would you like to add an animal, find an animals room, set status, check shots\n1 = add animal\n2 = change status\n3 = animal shots");
+            Console.WriteLine("would you like to add an animal, find an animals room, set status, check shots\n1 = add animal\n2 = change status\n3 = animal shots\n4 = check animal rooms\n5 = search amount of food needed");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -31,9 +31,18 @@ namespace HumaneSocietyConsole
                     Quary.CheckAnimalShots();
                     MainMenu(personInfo);
                     break;
+                case "4":
+                    Quary.CheckRoom();
+                    MainMenu(personInfo);
+                    break;
+                case "5":
+                    Quary.CheckAmountOfFood();
+                    MainMenu(personInfo);
+                    break;
                 default:
                     Console.WriteLine("Sorry try again.");
                     Console.ReadLine();
+                    MainMenu(personInfo);
                     break;
             }
         }

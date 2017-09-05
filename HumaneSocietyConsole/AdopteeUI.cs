@@ -12,6 +12,29 @@ namespace HumaneSocietyConsole
         {
             Console.WriteLine("welcome " + personInfo.First_Name);
             Console.ReadLine();
+            Console.WriteLine("Would you like to search for an animal or adopt one?\n1 = find\n2 = adopt");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    SearchAnimals();
+                    MainMenu(personInfo);
+                    break;
+                case "2":
+                    AdoptAnimal();
+                    MainMenu(personInfo);
+                    break;               
+                default:
+                    Console.WriteLine("Sorry try again.");
+                    Console.ReadLine();
+                    MainMenu(personInfo);
+                    break;
+            }
+        }
+        public static void SearchAnimals()
+        {
+            Console.WriteLine("What ctriteria would you like to search by?")
+
         }
     }
 }
