@@ -8,22 +8,16 @@ namespace HumaneSocietyConsole
 {
     static class EmployeeUI
     {
-        public static void StartEmployee()
-        {
-            
-            Console.ReadLine();
-            MainMenu();
-        }
         public static void MainMenu(employee personInfo)
         {
             Console.WriteLine("welcome employee " + personInfo.First_Name);
-            Console.WriteLine("would you like to add an animal, find an animals room, set status, check shots\n1 = add animal\n2 = Get status\n3 = ");
+            Console.WriteLine("would you like to add an animal, find an animals room, set status, check shots\n1 = add animal\n2 = change status\n3 = animal shots");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
                     AddAnimal();
-                    MainMenu();
+                    MainMenu(personInfo);
                     break;
                 case "2":
                     var aniamlsList = Quary.AnimalStatus();                    
@@ -31,7 +25,11 @@ namespace HumaneSocietyConsole
                     Quary.DisplayAdopted(aniamlsList);
                     Console.ReadLine();
                     Quary.SetStatus();
-                    MainMenu();
+                    MainMenu(personInfo);
+                    break;
+                case "3":
+                    Quary.CheckAnimalShots();
+                    MainMenu(personInfo);
                     break;
                 default:
                     Console.WriteLine("Sorry try again.");
@@ -94,7 +92,7 @@ namespace HumaneSocietyConsole
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
             Console.WriteLine("What room will the animal be staying in?");
             int userInput = int.Parse(Console.ReadLine());
-            foreach(var item in context.animals)
+            foreach (var item in context.animals)
             {
                 if(item.Room == userInput)
                 {

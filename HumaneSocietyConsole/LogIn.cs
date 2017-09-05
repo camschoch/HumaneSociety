@@ -91,32 +91,17 @@ namespace HumaneSocietyConsole
         /////MAKE A WHERE STATEMENT THAT CHECKS A USERNAME AND THEN WHERE THAT USERNAME EXISTS CHECK THE PASSWORD
         /////USING CLIENT??
 
-        //void CheckUserName(string userName, string pass, adopter ADOPTER)
-        //{
-        //    LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-        //    if (userName == ADOPTER.Username)
-        //    {
-        //        context.adopters.Where(ADOPTER.Username);
-        //    }
-
-        //}
         void CheckUserNameAdoptee(string tempUserName, string tempPassword)
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
 
-            //string test = context.adopters.Where((temp) => ADOPTER.Username == tempUserName);
             
 
             foreach (var item in context.adopters)
             {
                 string itemString = item.Username.ToString();
-                //int thing = ADOPTER.Adopter1;
                 if (itemString == tempUserName)
                 {
-                    //string otherTest = from User in adopter
-                    //                   where adopter.Username == itemString
-                    //                   select User;
-                    //string test = context.adopters.Where((temp) =>  == );
                     CheckPasswordAdoptee(tempPassword, itemString, item);
                 }
             }
@@ -140,10 +125,6 @@ namespace HumaneSocietyConsole
         void CheckUserNameEmployee(string tempUserName, string tempPassword)
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-
-            //string test = context.adopters.Where((temp) => ADOPTER.Username == tempUserName);
-
-
             foreach (var item in context.employees)
             {
                 string itemString = item.Username.ToString();

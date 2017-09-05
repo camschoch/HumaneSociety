@@ -116,8 +116,55 @@ namespace HumaneSocietyConsole
                             break;
                     }
                 }
-                EmployeeUI.MainMenu();
             }
+        }
+        public static void CheckAnimalShots()
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            foreach(var item in context.animals)
+            {
+                if (item.Shots_Date < DateTime.Now)
+                {
+                    Console.WriteLine(item.Animal1 + " " + item.Name + " needs to be updated.");
+                }
+                Console.WriteLine("ANIMALS THAT NEED SHOTS DISPLAYED BELOW");
+                Console.ReadLine();
+            }
+            Console.WriteLine("would you like to update an animals shots?\n1 = yes\n2 = no");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    UpdateShots();
+                    break;
+                case "2":
+                    break;
+                default:
+                    Console.WriteLine("Sorry try again");
+                    Console.ReadLine();
+                    CheckAnimalShots();
+                    break;
+            }
+        }
+        public static void UpdateShots()
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            Console.WriteLine("What is the ID of the animal you would like to update?");
+            int userInput = int.Parse(Console.ReadLine());
+            
+            foreach(var item in context.animals)
+            {
+                if (item.Animal1 == userInput)
+                {
+                    item.Shots_Date = DateTime.Now;
+                    Console.WriteLine(item.Name + " is now up to date!");
+                    Console.ReadLine();
+                    return;
+                }
+            }
+            Console.WriteLine("Sorry there was not a matching ID please try again.");
+            Console.ReadLine();
+            UpdateShots();
         }
     }
 }
