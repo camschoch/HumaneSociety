@@ -8,6 +8,12 @@ namespace HumaneSocietyConsole
 {
     static class EmployeeUI
     {
+        public static void StartEmployee()
+        {
+            
+            Console.ReadLine();
+            MainMenu();
+        }
         public static void MainMenu(employee personInfo)
         {
             Console.WriteLine("welcome employee " + personInfo.First_Name);
@@ -17,6 +23,15 @@ namespace HumaneSocietyConsole
             {
                 case "1":
                     AddAnimal();
+                    MainMenu();
+                    break;
+                case "2":
+                    var aniamlsList = Quary.AnimalStatus();                    
+                    Quary.DisplayNotAdopted(aniamlsList);
+                    Quary.DisplayAdopted(aniamlsList);
+                    Console.ReadLine();
+                    Quary.SetStatus();
+                    MainMenu();
                     break;
                 default:
                     Console.WriteLine("Sorry try again.");

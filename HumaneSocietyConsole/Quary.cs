@@ -50,5 +50,74 @@ namespace HumaneSocietyConsole
             context.animals.InsertOnSubmit(ANIMAL);
             context.SubmitChanges();
         }
+        static public List<List<animal>> AnimalStatus()
+        {
+            List<animal> notAdopted = new List<animal>();
+            List<animal> adopted = new List<animal>();
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            foreach (var animal in context.animals)
+            {
+                if (animal.Current_Status == false)
+                {
+                    notAdopted.Add(animal);
+                }
+                else if (animal.Current_Status == true)
+                {
+                    adopted.Add(animal);
+                }
+            }
+            List<List<animal>> animalsList = new List<List<animal>>();
+            animalsList.Add(notAdopted);
+            animalsList.Add(adopted);
+            return animalsList;
+        }
+        static public void DisplayNotAdopted(List<List<animal>> animals)
+        {
+            var notAdopted = animals[0];
+            foreach(var item in notAdopted)
+            {
+                Console.WriteLine(item.Animal1 + " " + item.Name + " " + item.Species + " Not adopted.");
+            }
+        }
+        static public void DisplayAdopted(List<List<animal>> animals)
+        {
+            var Adopted = animals[1];
+            foreach (var item in Adopted)
+            {
+                Console.WriteLine(item.Animal1 + " " + item.Name + " " + item.Species + " Adopted!");
+            }
+        }
+        static public void SetStatus()
+        {
+            Console.WriteLine("Please enter the ID of the animal you would like to change the status of.");
+            string userInput = Console.ReadLine();
+            int intInput = int.Parse(userInput);
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            foreach (var item in context.animals)
+            {
+                if (item.Animal1 == intInput)
+                {
+                    Console.WriteLine("Are you changing this animal to adopted or not adopted\n 1 = adopted\n 2 = not adopted");
+                    string adoptionStatus = Console.ReadLine();
+                    switch (adoptionStatus)
+                    {
+                        case "1":
+                            item.Current_Status = true;
+                            context.SubmitChanges();
+                            break;
+                        case "2":
+                            item.Current_Status = false;
+                            context.SubmitChanges();
+                            break;
+                        default:
+                            Console.WriteLine("sorry try again.");
+                            Console.ReadLine();
+                            SetStatus();
+                            break;
+                    }
+                }
+                EmployeeUI.MainMenu();
+            }
+        }
     }
 }
