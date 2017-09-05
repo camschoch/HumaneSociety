@@ -14,7 +14,7 @@ namespace HumaneSocietyConsole
             string LastName = SetLastName();
             string UserName = SetUserName();
             string Password = SetPassword();
-            CreateEmployee(FirstName, LastName, UserName, Password);
+            Quary.CreateEmployee(FirstName, LastName, UserName, Password);
         }
         public static void SetCreateAdoptee()
         {
@@ -24,7 +24,7 @@ namespace HumaneSocietyConsole
             string Password = SetPassword();
             string PreferedAnimalPersonality = SetPreferedPersonality();
             int houseActivityLevelInt = SetActivityLvl();
-            CreateAdoptee(FirstName, LastName, UserName, Password, PreferedAnimalPersonality, houseActivityLevelInt);
+            Quary.CreateAdoptee(FirstName, LastName, UserName, Password, PreferedAnimalPersonality, houseActivityLevelInt);
             //SEND INFO TO DATABASE
             //Console.WriteLine("EndRun");
             //Console.ReadLine();
@@ -123,32 +123,6 @@ namespace HumaneSocietyConsole
                 SetActivityLvl();
                 return empty;
             }
-        }
-
-
-        public static void CreateEmployee(string FirstName, string LastName, string UserName, string Password)
-        {
-            employee EMPLOYEE = new employee();
-            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-            EMPLOYEE.First_Name = FirstName;
-            EMPLOYEE.Last_Name = LastName;
-            EMPLOYEE.Username = UserName;
-            EMPLOYEE.Pass = Password;
-            context.employees.InsertOnSubmit(EMPLOYEE);
-            context.SubmitChanges();
-        }
-        public static void CreateAdoptee(string FirstName, string LastName, string UserName, string Password, string PreferedAnimalPersonality, int houseActivityLevelInt)
-        {
-            adopter ADOPTER = new adopter();
-            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-            ADOPTER.First_Name = FirstName;
-            ADOPTER.Last_Name = LastName;
-            ADOPTER.Username = UserName;
-            ADOPTER.Pass = Password;
-            ADOPTER.Personality = PreferedAnimalPersonality;
-            ADOPTER.Household_Activity = houseActivityLevelInt;
-            context.adopters.InsertOnSubmit(ADOPTER);
-            context.SubmitChanges();
         }
     }
 }

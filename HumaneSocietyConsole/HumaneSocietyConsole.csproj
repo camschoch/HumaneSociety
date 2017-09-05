@@ -60,6 +60,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Quary.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
