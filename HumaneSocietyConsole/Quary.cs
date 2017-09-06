@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HumaneSocietyConsole
 {
@@ -344,6 +345,38 @@ namespace HumaneSocietyConsole
                 Console.WriteLine(adoptedOrNot + "\nspecies: " + item.Species + "\nBreed: " + item.Breed + "\nName: " + item.Name + "\nPersonality: " + item.Personality + "\nMax household activity level: " + item.Household_Activity + "\nPrice: $" + item.Price + "\n");
             }
             AdopteeUI.SearchAnimals(searchedAnimals);
-        }       
+        }      
+        //public static void Import()
+        //{
+        //    string[] allLines = File.ReadAllLines(/*file location*/);
+
+
+
+        //    var query = from line in allLines
+
+        //                let data = line.Split(‘,’)
+
+        //                select new
+
+        //                {
+
+        //                    ID = data[0],
+
+        //                    FirstName = data[1],
+
+        //                    LastName = data[2]
+
+        //                };
+
+
+
+        //    foreach (var s in query)
+
+        //    {
+
+              
+
+        //    }
+        //} 
     }
 }

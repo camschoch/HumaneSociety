@@ -39,6 +39,9 @@ namespace HumaneSocietyConsole
                     Quary.CheckAmountOfFood();
                     MainMenu(personInfo);
                     break;
+                //case "6":
+                //    Quary.Import();
+                //    break;
                 default:
                     Console.WriteLine("Sorry try again.");
                     Console.ReadLine();
