@@ -17,11 +17,12 @@ namespace HumaneSocietyConsole
             switch (userInput)
             {
                 case "1":
-                    SearchAnimals();
+                    List<animal> searchedAnimals = new List<animal>();
+                    SearchAnimals(searchedAnimals);
                     MainMenu(personInfo);
                     break;
                 case "2":
-                    AdoptAnimal();
+                    //AdoptAnimal();
                     MainMenu(personInfo);
                     break;               
                 default:
@@ -31,10 +32,11 @@ namespace HumaneSocietyConsole
                     break;
             }
         }
-        public static void SearchAnimals()
+        public static void SearchAnimals(List<animal> searchedAnimal)
         {
-            Console.WriteLine("What ctriteria would you like to search by?")
-
+            Console.WriteLine("What ctriteria would you like to search by?\n1 = species\n2 = price\n3 = personality\n4 = household activity level\n5 = finished");
+            string userInput = Console.ReadLine();
+            Quary.SearchAnimals(userInput, searchedAnimal);
         }
     }
 }

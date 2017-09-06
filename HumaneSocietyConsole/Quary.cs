@@ -93,41 +93,36 @@ namespace HumaneSocietyConsole
             string userInput = Console.ReadLine();
             int intInput = int.Parse(userInput);
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-            foreach (var item in context.animals)
-            {
-                if (item.Animal1 == intInput)
+            foreach (var item in context.animals.Where((a) => a.Animal1 == intInput))
+            {   
+                Console.WriteLine("Are you changing this animal to adopted or not adopted\n 1 = adopted\n 2 = not adopted");
+                string adoptionStatus = Console.ReadLine();
+                switch (adoptionStatus)
                 {
-                    Console.WriteLine("Are you changing this animal to adopted or not adopted\n 1 = adopted\n 2 = not adopted");
-                    string adoptionStatus = Console.ReadLine();
-                    switch (adoptionStatus)
-                    {
-                        case "1":
-                            item.Current_Status = true;
-                            context.SubmitChanges();
-                            break;
-                        case "2":
-                            item.Current_Status = false;
-                            context.SubmitChanges();
-                            break;
-                        default:
-                            Console.WriteLine("sorry try again.");
-                            Console.ReadLine();
-                            SetStatus();
-                            break;
-                    }
+                    case "1":
+                        item.Current_Status = true;
+                        context.SubmitChanges();
+                        break;
+                    case "2":
+                        item.Current_Status = false;
+                        context.SubmitChanges();
+                        break;
+                    default:
+                        Console.WriteLine("sorry try again.");
+                        Console.ReadLine();
+                        SetStatus();
+                        break;
+
                 }
             }
         }
         public static void CheckAnimalShots()
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-            foreach(var item in context.animals)
+            foreach(var item in context.animals.Where((a) => a.Shots_Date < DateTime.Now))
             {
-                if (item.Shots_Date < DateTime.Now)
-                {
-                    Console.WriteLine(item.Animal1 + " " + item.Name + " needs to be updated.");
-                }
-                Console.WriteLine("ANIMALS THAT NEED SHOTS DISPLAYED BELOW");
+                Console.WriteLine("ANIMALS THAT NEED SHOTS DISPLAYED BELOW\n");
+                Console.WriteLine(item.Animal1 + " " + item.Name + " needs to be updated.");                                
                 Console.ReadLine();
             }
             Console.WriteLine("would you like to update an animals shots?\n1 = yes\n2 = no");
@@ -151,16 +146,13 @@ namespace HumaneSocietyConsole
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
             Console.WriteLine("What is the ID of the animal you would like to update?");
             int userInput = int.Parse(Console.ReadLine());
-            
-            foreach(var item in context.animals)
+
+            foreach (var item in context.animals.Where((a) => a.Animal1 == userInput))
             {
-                if (item.Animal1 == userInput)
-                {
-                    item.Shots_Date = DateTime.Now;
-                    Console.WriteLine(item.Name + " is now up to date!");
-                    Console.ReadLine();
-                    return;
-                }
+                item.Shots_Date = DateTime.Now;
+                Console.WriteLine(item.Name + " is now up to date!");
+                Console.ReadLine();
+                return;
             }
             Console.WriteLine("Sorry there was not a matching ID please try again.");
             Console.ReadLine();
@@ -185,10 +177,173 @@ namespace HumaneSocietyConsole
             Console.ReadLine();
         }
         ///////////////////////ADOPTERUI
-        public static void SearchAnimals()
+        public static void SearchAnimals(string userInput, List<animal> searchedAnimal)
         {
-
-
+            switch (userInput)
+            {
+                case "1":
+                    SearchSpecies(searchedAnimal);
+                    break;
+                case "2":
+                    SearchPrice(searchedAnimal);
+                    break;
+                case "3":
+                    SearchPersonality(searchedAnimal);
+                    break;
+                case "4":
+                    SearchActivityLvl(searchedAnimal);
+                    break;
+                case "5":
+                    break;
+                default:
+                    Console.WriteLine("Sorry try again");
+                    Console.ReadLine();
+                    AdopteeUI.SearchAnimals(searchedAnimal);
+                    break;
+            }
         }
+        static void SearchSpecies(List<animal> searchedAnimals)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            Console.WriteLine("What species are you looking for?\n1 = cat\n2 = dog\n3 = bird\n4 = lizard\n5 = bunny");
+            string userInput = Console.ReadLine();
+            string animal = "";
+            switch (userInput)
+            {
+                case "1":
+                    animal = "cat";
+                    break;
+                case "2":
+                    animal = "dog";
+                    break;
+                case "3":
+                    animal = "bird";
+                    break;
+                case "4":
+                    animal = "lizard";
+                    break;
+                case "5":
+                    animal = "bunny";
+                    break;
+                default:
+                    Console.WriteLine("Sorry try again");
+                    Console.ReadLine();
+                    SearchSpecies(searchedAnimals);
+                    break;
+            }
+            foreach (var item in context.animals.Where((a) => a.Species == animal))
+            {
+                searchedAnimals.Add(item);
+                string adoptedOrNot = "";
+                if (item.Current_Status == false)
+                {
+                    adoptedOrNot = "Not Adopted";
+                }
+                else
+                {
+                    adoptedOrNot = "Adopted!";
+                }
+                Console.WriteLine(adoptedOrNot + "\nspecies: " + item.Species + "\nBreed: " + item.Breed + "\nName: " + item.Name + "\nPersonality: " + item.Personality + "\nMax household activity level: " + item.Household_Activity + "\nPrice: $" + item.Price + "\n");
+            }
+            AdopteeUI.SearchAnimals(searchedAnimals);
+        }
+        static void SearchPrice(List<animal> searchedAnimals)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            Console.WriteLine("What is the max price you are looking for?");
+            int userInput = 0;
+            try
+            {
+                userInput = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Sorry try again");
+                Console.ReadLine();
+                SearchPrice(searchedAnimals);
+            }
+            foreach (var item in context.animals.Where((a) => a.Price < userInput))
+            {
+                searchedAnimals.Add(item);
+                string adoptedOrNot = "";
+                if (item.Current_Status == false)
+                {
+                    adoptedOrNot = "Not Adopted";
+                }
+                else
+                {
+                    adoptedOrNot = "Adopted!";
+                }
+                Console.WriteLine(adoptedOrNot + "\nspecies: " + item.Species + "\nBreed: " + item.Breed + "\nName: " + item.Name + "\nPersonality: " + item.Personality + "\nMax household activity level: " + item.Household_Activity + "\nPrice: $" + item.Price + "\n");
+            }
+            AdopteeUI.SearchAnimals(searchedAnimals);
+        }
+        static void SearchPersonality(List<animal> searchedAnimals)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            Console.WriteLine("What personality are you looking for?\n1 = docile\n2 = energetic");
+            string userInput = Console.ReadLine();
+            string animal = "";
+            switch (userInput)
+            {
+                case "1":
+                    animal = "docile";
+                    break;
+                case "2":
+                    animal = "energetic";
+                    break;                
+                default:
+                    Console.WriteLine("Sorry try again");
+                    Console.ReadLine();
+                    SearchPersonality(searchedAnimals);
+                    break;
+            }
+            foreach (var item in context.animals.Where((a) => a.Personality == animal))
+            {
+                searchedAnimals.Add(item);
+                string adoptedOrNot = "";
+                if (item.Current_Status == false)
+                {
+                    adoptedOrNot = "Not Adopted";
+                }
+                else
+                {
+                    adoptedOrNot = "Adopted!";
+                }
+                Console.WriteLine(adoptedOrNot + "\nspecies: " + item.Species + "\nBreed: " + item.Breed + "\nName: " + item.Name + "\nPersonality: " + item.Personality + "\nMax household activity level: " + item.Household_Activity + "\nPrice: $" + item.Price + "\n");
+            }
+            AdopteeUI.SearchAnimals(searchedAnimals);
+        }
+        static void SearchActivityLvl(List<animal> searchedAnimals)
+        {
+            LINQtoSQLDataContext context = new LINQtoSQLDataContext();
+            Console.WriteLine("What is the max activity Level you are looking for?");
+            int userInput = 0;
+            try
+            {
+                userInput = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Sorry try again");
+                Console.ReadLine();
+                SearchPrice(searchedAnimals);
+            }
+            foreach (var item in context.animals.Where((a) => a.Price < userInput))
+            {
+                searchedAnimals.Add(item);
+                string adoptedOrNot = "";
+                if (item.Current_Status == false)
+                {
+                    adoptedOrNot = "Not Adopted";
+                }
+                else
+                {
+                    adoptedOrNot = "Adopted!";
+                }
+                Console.WriteLine(adoptedOrNot + "\nspecies: " + item.Species + "\nBreed: " + item.Breed + "\nName: " + item.Name + "\nPersonality: " + item.Personality + "\nMax household activity level: " + item.Household_Activity + "\nPrice: $" + item.Price + "\n");
+            }
+            AdopteeUI.SearchAnimals(searchedAnimals);
+        }       
     }
 }

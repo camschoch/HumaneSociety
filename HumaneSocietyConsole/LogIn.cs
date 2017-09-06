@@ -85,31 +85,19 @@ namespace HumaneSocietyConsole
             Console.WriteLine("Please enter your password");
             tempPassword = Console.ReadLine();
             CheckUserNameEmployee(tempUserName, tempPassword);
-
         }
-
-        /////MAKE A WHERE STATEMENT THAT CHECKS A USERNAME AND THEN WHERE THAT USERNAME EXISTS CHECK THE PASSWORD
-        /////USING CLIENT??
-
         void CheckUserNameAdoptee(string tempUserName, string tempPassword)
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-
-            
-
-            foreach (var item in context.adopters)
-            {
-                string itemString = item.Username.ToString();
-                if (itemString == tempUserName)
-                {
-                    CheckPasswordAdoptee(tempPassword, itemString, item);
-                }
+            foreach (var item in context.adopters.Where((a) => a.Username == tempUserName))
+            {             
+                    CheckPasswordAdoptee(tempPassword, item);                
             }
             Console.WriteLine("We couldnt find a matching user name.");
             Console.ReadLine();
             AdopteeLogIn();
         }
-        void CheckPasswordAdoptee(string tempPassword, string userName, adopter item)
+        void CheckPasswordAdoptee(string tempPassword, adopter item)
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
             string password = item.Pass;
@@ -125,25 +113,18 @@ namespace HumaneSocietyConsole
         void CheckUserNameEmployee(string tempUserName, string tempPassword)
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-            foreach (var item in context.employees)
-            {
-                string itemString = item.Username.ToString();
-               
-                if (itemString == tempUserName)
-                {
-                    CheckPasswordEmployee(tempPassword, itemString, item);
-                }
+            foreach (var item in context.employees.Where((a) => a.Username == tempUserName))
+            {                
+                CheckPasswordEmployee(tempPassword, item);                
             }
             Console.WriteLine("We couldnt find a matching user name.");
             Console.ReadLine();
             EmployeeLogIn();
         }
-        void CheckPasswordEmployee(string tempPassword, string userName, employee item)
+        void CheckPasswordEmployee(string tempPassword, employee item)
         {
             LINQtoSQLDataContext context = new LINQtoSQLDataContext();
-            string password = item.Pass;
-
-            if (password == tempPassword)
+            if (item.Pass == tempPassword)
             {
                 EmployeeUI.MainMenu(item);
             }
